@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "shellrent/starter-kit-laravel-filament-react",
     "type": "project",
-    "description": "Starter kit for a laravel application based on filament admin panel and react",
+    "description": "Starter kit PHP 8.3 for a laravel application based on filament admin panel and react",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
