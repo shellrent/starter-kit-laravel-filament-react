@@ -9,9 +9,11 @@
 # Primo avvio
 - git clone
 - creare il file `.env` copiando il `.env.example` e modificandolo opportunamente
+  - porta web e database, APP_URL compreso
 - `./docker/8.3/project-installer/install-laravel-project.sh`
     - installa i vendor la prima volta - necessario per poi usare vendor/bin/sail
     - genera una nuova chiave app con artisan
+    - genera il symlink con storage:link
 - `docker login -u {username_gitlab} -p {gitlab_token} endpoint:5050`
   - il token deve essere un token di accesso personale con permessi di lettura e scrittura sui container registry
   - creare il token su Gitlab con permessi `read_registry`, se non esiste già. https://endpoint/-/user_settings/personal_access_tokens
@@ -20,7 +22,6 @@
     - sail scarica l'immagine dal container registry (se presente), altrimenti la costruisce
 - `sail artisan migrate`
 - `sail artisan db:seed`
-- `sail artisan storage:link`
 - modificare file hosts
     - `{ip-VM} {app-complete-domain}`
 - `nvm install 24`

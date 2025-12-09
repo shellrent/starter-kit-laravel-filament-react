@@ -9,16 +9,9 @@
 /.idea
 /.nova
 /.phpunit.cache
-/.vscode
 /.zed
 /auth.json
 /node_modules
-/public/css/
-/public/js/
-/public/build
-/public/hot
-/public/storage
-/public/vendor
 /storage/*.key
 /storage/pail
 /vendor
@@ -29,5 +22,27 @@ Thumbs.db
 .composer
 data/*
 /logs
-.github
 cghooks.lock
+
+
+storage/app/public
+
+# Ignora tutto dentro public
+/public/**
+
+# Mantieni i file nella root di public
+!/public/*
+# (ma continua comunque a ignorare le sottocartelle)
+/public/*/
+
+/public/storage
+
+# Mantieni css/filament
+!/public/css/
+!/public/css/filament/
+!/public/css/filament/**
+
+# Mantieni js/filament
+!/public/js/
+!/public/js/filament/
+!/public/js/filament/**

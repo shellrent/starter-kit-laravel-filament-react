@@ -3,6 +3,13 @@
 # Update dependencies
 php composer.phar install --no-dev --optimize-autoloader --no-scripts
 
+# Package discovery
+php artisan package:discover --ansi
+if [ $? != 0 ]; then
+	printf "\n\nERROR! migrating\n\n"
+	exit 1
+fi
+
 # Migrate the database
 php artisan migrate --force
 if [ $? != 0 ]; then
@@ -36,6 +43,24 @@ fi
 php artisan config:clear
 if [ $? != 0 ]; then
 	printf "\n\nERROR! clearing config\n\n"
+	exit 1
+fi
+
+php artisan config:cache
+if [ $? != 0 ]; then
+	printf "\n\nERROR! Chaching config\n\n"
+	exit 1
+fi
+
+php artisan route:cache
+if [ $? != 0 ]; then
+	printf "\n\nERROR! Chaching route\n\n"
+	exit 1
+fi
+
+php artisan view:cache
+if [ $? != 0 ]; then
+	printf "\n\nERROR! clearing view\n\n"
 	exit 1
 fi
 
